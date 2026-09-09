@@ -1,0 +1,492 @@
+/* ==========================================================================
+   DESIGN TOKENS & SYSTEM — MOTURIAL SÃO PAULO (OP7 MULTILINK)
+   ========================================================================== */
+
+:root {
+  /* Official Moturial Orange & Racing Palette */
+  --moturial-orange: #FF6B0F;
+  --moturial-orange-hover: #E55A00;
+  --moturial-red: #FF2A39;
+  --moturial-dark: #141414;
+  --moturial-gold: #FFB800;
+
+  /* Theme Tokens */
+  --bg-base: #FAFAFA;
+  --card-bg: #FFFFFF;
+  --border-subtle: rgba(20, 20, 20, 0.08);
+  --border-highlight: rgba(255, 107, 15, 0.35);
+
+  --text-title: #141414;
+  --text-body: #333333;
+  --text-muted: #666666;
+
+  /* Typography */
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Micro-transitions */
+  --ease-snappy: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-base);
+  color: var(--text-title);
+  line-height: 1.55;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ambient Subtle Orange Energy Glow & Speed Grid */
+.ambient-moturial-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-color: var(--bg-base);
+  background-image: 
+    linear-gradient(to right, rgba(20, 20, 20, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 20, 20, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 50% 0%, rgba(255, 107, 15, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 50% 100%, rgba(255, 42, 57, 0.08) 0%, transparent 60%);
+  background-size: 28px 28px, 28px 28px, 100% 100%, 100% 100%;
+  pointer-events: none;
+}
+
+/* Page Wrapper */
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  padding: 32px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header */
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  padding-top: 6px;
+}
+
+.brand-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 4px 0;
+}
+
+.brand-logo-img {
+  max-width: 220px;
+  height: auto;
+  object-fit: contain;
+}
+
+.brand-bio {
+  font-size: 0.93rem;
+  color: var(--text-body);
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+.brand-bio strong {
+  color: var(--moturial-orange);
+  font-weight: 700;
+}
+
+/* Section Divider */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 4px 0;
+}
+
+.divider-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255, 107, 15, 0.25), rgba(20, 20, 20, 0.06));
+}
+
+.divider-counter {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--moturial-orange);
+  background: rgba(255, 107, 15, 0.08);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+/* Links Stack */
+.links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Master Highlight Button (WhatsApp Locação) */
+.btn-moturial-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, #FF6B0F 0%, #E65100 100%);
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(255, 107, 15, 0.28);
+  transition: transform var(--ease-snappy), box-shadow var(--ease-snappy), border-color var(--ease-snappy);
+  cursor: pointer;
+}
+
+.btn-moturial-highlight:hover,
+.btn-moturial-highlight:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 107, 15, 0.38);
+  border-color: #FFFFFF;
+  outline: none;
+}
+
+.btn-moturial-highlight .icon-box-wsp {
+  background: #25D366;
+  color: #FFFFFF;
+}
+
+.btn-moturial-highlight .btn-title {
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.btn-moturial-highlight .btn-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.8rem;
+}
+
+.btn-moturial-highlight .btn-action-icon {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.2);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge-tag-pronta-entrega {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: #141414;
+  color: #FFFFFF;
+  padding: 2px 7px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.badge-tag-investir {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: var(--moturial-orange);
+  color: #FFFFFF;
+  padding: 2px 7px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+/* Standard Card Buttons */
+.btn-card-standard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--text-title);
+  box-shadow: 0 2px 8px rgba(20, 20, 20, 0.04);
+  transition: transform var(--ease-snappy), border-color var(--ease-snappy), box-shadow var(--ease-snappy);
+  cursor: pointer;
+}
+
+.btn-card-standard:hover,
+.btn-card-standard:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(255, 107, 15, 0.4);
+  box-shadow: 0 6px 18px rgba(255, 107, 15, 0.1);
+  outline: none;
+}
+
+.btn-left-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 107, 15, 0.08);
+  color: var(--moturial-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-box-google {
+  background: #F8FAFC;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.icon-box-franchise {
+  background: rgba(255, 107, 15, 0.12);
+  color: var(--moturial-orange);
+}
+
+.icon-box-fb {
+  background: rgba(24, 119, 242, 0.1);
+  color: #1877F2;
+}
+
+.icon-box-pin {
+  background: rgba(234, 67, 53, 0.1);
+  color: #EA4335;
+}
+
+.btn-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.btn-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-title);
+  line-height: 1.3;
+}
+
+.btn-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-action-icon {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  flex-shrink: 0;
+  transition: transform var(--ease-snappy), color var(--ease-snappy);
+}
+
+.btn-card-standard:hover .btn-action-icon {
+  transform: translate(2px, -2px);
+  color: var(--moturial-orange);
+}
+
+/* Base Location Card */
+.info-plant-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.plant-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.plant-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 107, 15, 0.08);
+  color: var(--moturial-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.plant-title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-title);
+}
+
+.plant-address {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Compliance / Fleet Pills */
+.compliance-pills-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  background: rgba(255, 107, 15, 0.04);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 107, 15, 0.1);
+}
+
+.pill-item {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--moturial-orange);
+  letter-spacing: 0.03em;
+}
+
+.pill-dot {
+  color: rgba(255, 107, 15, 0.3);
+  font-size: 0.6rem;
+}
+
+/* Footer */
+.page-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding-top: 12px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-links a {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--ease-snappy);
+}
+
+.footer-links a:hover {
+  color: var(--moturial-orange);
+}
+
+.dot-separator {
+  color: var(--text-muted);
+  font-size: 0.65rem;
+}
+
+.footer-watermark {
+  padding: 4px 0;
+}
+
+.bmk-img {
+  width: 80px;
+  height: auto;
+  opacity: 0.85;
+  transition: opacity var(--ease-snappy), transform var(--ease-snappy);
+}
+
+.bmk-img:hover {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.copyright-text {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
